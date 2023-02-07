@@ -24,7 +24,7 @@ class Website(models.Model):
     # Define fields for the model
     name = models.CharField(max_length=255)
     image = models.ImageField(
-        upload_to="media/website_icons/",
+        upload_to="website_icons/",
         null=True,
         blank=True,
     )
@@ -63,7 +63,7 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
     parent = models.ForeignKey("self", null=True, blank=True, on_delete=models.SET_NULL)
     image = models.ImageField(
-        upload_to="media/category_icons/",
+        upload_to="category_icons/",
         null=True,
         blank=True,
     )
@@ -91,7 +91,7 @@ class Product(models.Model):
     categories = models.ManyToManyField(Category)
     websites = models.ManyToManyField(Website)
     image = models.ImageField(
-        upload_to="media/product_pictures/",
+        upload_to="product_pictures/",
         null=True,
         blank=True,
     )

@@ -3,6 +3,7 @@ version: '3'
 volumes:
   porovnavac_local_postgres_data: {}
   porovnavac_local_postgres_data_backups: {}
+  porovnavac_media: {}
 
 services:
   django: &django
@@ -16,6 +17,7 @@ services:
       - redis
     volumes:
       - .:/app:z
+      - porovnavac_media:/app/porovnavac/porovnavac/media
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres

@@ -4,7 +4,8 @@ volumes:
   production_postgres_data: {}
   production_postgres_data_backups: {}
   production_traefik: {}
-
+  porovnavac_media: {}
+  
 services:
   django: &django
     build:
@@ -15,6 +16,8 @@ services:
     depends_on:
       - postgres
       - redis
+    volumes:
+      - porovnavac_media:/app/porovnavac/porovnavac/media
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
